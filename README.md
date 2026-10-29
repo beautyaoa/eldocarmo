@@ -2,7 +2,7 @@
 
 Premium multi-site project for **Eldo Carmo Empreendimentos** (Johnny Berry).
 
-Three independent static websites built with pure HTML5 / CSS3 / Vanilla JS.  
+Four independent static websites built with pure HTML5 / CSS3 / Vanilla JS.  
 No frameworks. No build step. Ready for Cloudflare Pages + GitHub.
 
 ---
@@ -11,9 +11,10 @@ No frameworks. No build step. Ready for Cloudflare Pages + GitHub.
 
 | Site | Folder | Final domain | Preview (current) | Description |
 |------|--------|--------------|-------------------|-------------|
-| **Portal** | `/portal` | eldocarmo.com | [eldocarmo.pages.dev](https://eldocarmo.pages.dev/) | Split-image gateway. Left → Glamorize · Right → Barber Shop |
+| **Portal** | `/portal` | eldocarmo.com | [eldocarmo.pages.dev](https://eldocarmo.pages.dev/) | Split-image gateway. Left → Glamorize · Centre → Scookiie · Right → Barber Shop |
 | **Barbershop** | `/barbershop` | eldocarmobarbershop.com | [eldocarmobarbershop.pages.dev](https://eldocarmobarbershop.pages.dev) | Full men's site: services, mini-bar + cart → WhatsApp, gallery, Lubango recruitment |
 | **Glamorize** | `/glamorize` | eldocarmoglamorize.com | [eldocarmoglamorize.pages.dev](https://eldocarmoglamorize.pages.dev) | Full women's beauty site: services, gallery, contact |
+| **Chocolate Scookiie** | `/chocolatescookiie` | chocolatescookiie.com | [chocolatescookiie.pages.dev](https://chocolatescookiie.pages.dev) | E-commerce: catalog, cart, checkout → admin orders (KV) |
 
 Each folder is a complete, self-contained site intended for its own GitHub repository.
 
@@ -64,6 +65,12 @@ Each folder is a complete, self-contained site intended for its own GitHub repos
 - Lubango recruitment section with dedicated WhatsApp
 - Contact form → WhatsApp
 - Sticky header + elegant mobile menu
+
+### Chocolate Scookiie
+- Product catalogue (Menta, Ginguba, Ao Leite) + cart
+- Checkout → Cloudflare Worker → KV orders (no WhatsApp)
+- Staff admin: orders, products, zones, images · password verified via API
+- Live catalogue via Cloudinary `catalog.json` · Pages + Worker
 
 ### Glamorize
 - Hero + services grid
