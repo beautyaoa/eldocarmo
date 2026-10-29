@@ -18,6 +18,8 @@
   --soft-gray: #E8E6E1;
   --lilac: #B8A0C8;
   --deep-purple: #6B4C7A;
+  --scookiie: #E8A838;
+  --scookiie-dark: #C47A1A;
   --white: #FFFFFF;
   
   --font-light: 300;
@@ -142,23 +144,17 @@ body {
   transform: translateY(-6px);
 }
 
-.side__logo {
-  max-width: 180px;
-  height: auto;
-  filter: brightness(1.1);
-}
-
-.side__logo--glamorize {
-  max-width: 200px;
-  border-radius: 4px;
-}
-
 .side__brand {
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: var(--font-medium);
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold);
+}
+
+.side__brand--glamorize {
+  color: var(--lilac);
+  letter-spacing: 0.22em;
 }
 
 .side__label {
@@ -189,7 +185,13 @@ body {
   background: rgba(201, 162, 39, 0.08);
 }
 
-/* ========== CENTER LOGO ========== */
+.side--glamorize:hover .side__cta {
+  border-color: var(--lilac);
+  color: var(--lilac);
+  background: rgba(184, 160, 200, 0.1);
+}
+
+/* ========== CENTER LOGO (Chocolate Scookiie) ========== */
 .portal__center {
   position: absolute;
   top: 50%;
@@ -199,31 +201,43 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  pointer-events: none;
   text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.portal__center:hover {
+  transform: translate(-50%, -50%) scale(1.06);
 }
 
 .portal__logo {
   width: clamp(110px, 18vw, 160px);
   height: auto;
   border-radius: 50%;
-  box-shadow: 0 0 0 1.5px rgba(201, 162, 39, 0.4),
-              0 8px 32px rgba(0,0,0,0.5);
-  transition: transform 0.6s ease;
+  box-shadow: 0 0 0 2px rgba(232, 168, 56, 0.45),
+              0 8px 32px rgba(0,0,0,0.55);
+  transition: box-shadow 0.4s ease;
 }
 
-.portal:hover .portal__logo {
-  transform: scale(1.04);
+.portal__center:hover .portal__logo {
+  box-shadow: 0 0 0 3px rgba(232, 168, 56, 0.7),
+              0 12px 40px rgba(0,0,0,0.6);
 }
 
 .portal__tagline {
   margin-top: 0.75rem;
   font-size: 0.65rem;
   font-weight: var(--font-light);
-  letter-spacing: 0.35em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.85;
+  color: var(--scookiie);
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.portal__center:hover .portal__tagline {
+  opacity: 1;
 }
 
 /* ========== MOBILE NAV ========== */
@@ -236,8 +250,8 @@ body {
   z-index: 100;
   background: var(--black);
   border-top: var(--line) solid rgba(201, 162, 39, 0.25);
-  padding: 0.75rem 1rem;
-  gap: 0.75rem;
+  padding: 0.65rem 0.6rem;
+  gap: 0.5rem;
 }
 
 .mobile-nav__link {
@@ -246,22 +260,23 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.2rem;
-  padding: 0.85rem 0.5rem;
+  gap: 0.15rem;
+  padding: 0.7rem 0.3rem;
   text-decoration: none;
   color: var(--cream);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: var(--font-medium);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   border: var(--line) solid rgba(255,255,255,0.12);
   border-radius: 3px;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .mobile-nav__link span {
-  font-size: 0.65rem;
+  font-size: 0.58rem;
   font-weight: var(--font-light);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   opacity: 0.7;
   text-transform: uppercase;
 }
@@ -270,6 +285,12 @@ body {
 .mobile-nav__link--glamorize:active {
   border-color: var(--lilac);
   color: var(--lilac);
+}
+
+.mobile-nav__link--scookiie:hover,
+.mobile-nav__link--scookiie:active {
+  border-color: var(--scookiie);
+  color: var(--scookiie);
 }
 
 .mobile-nav__link--barbershop:hover,
@@ -282,8 +303,8 @@ body {
 @media (max-width: 768px) {
   .portal {
     flex-direction: column;
-    height: calc(100vh - 80px);
-    height: calc(100dvh - 80px);
+    height: calc(100vh - 78px);
+    height: calc(100dvh - 78px);
   }
 
   .side {
@@ -313,7 +334,6 @@ body {
     );
   }
 
-  /* Center Glamorize content in the top half; bottom padding keeps ENTRAR clear of center logo */
   .side--glamorize {
     align-items: center;
     justify-content: center;
@@ -321,7 +341,7 @@ body {
 
   .side--glamorize .side__content {
     gap: 0.6rem;
-    padding-bottom: 2.25rem; /* keep clear of center logo */
+    padding-bottom: 2.25rem;
   }
 
   .side__cta {
@@ -338,12 +358,8 @@ body {
 
   .portal__tagline {
     margin-top: 0.4rem;
-    font-size: 0.55rem;
-  }
-
-  .side__logo,
-  .side__logo--glamorize {
-    max-width: 120px;
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
   }
 
   .side__content {
@@ -360,11 +376,6 @@ body {
     width: 68px;
   }
 
-  .side__logo,
-  .side__logo--glamorize {
-    max-width: 105px;
-  }
-
   .side--glamorize .side__content {
     padding-bottom: 2.5rem;
   }
@@ -372,6 +383,10 @@ body {
   .side__brand {
     letter-spacing: 0.15em;
     font-size: 1.15rem;
+  }
+
+  .side__brand--glamorize {
+    letter-spacing: 0.12em;
   }
 
   .side__label {
@@ -383,6 +398,15 @@ body {
     font-size: 0.68rem;
     margin-top: 0.25rem;
   }
+
+  .mobile-nav__link {
+    font-size: 0.68rem;
+    padding: 0.65rem 0.2rem;
+  }
+
+  .mobile-nav__link span {
+    font-size: 0.55rem;
+  }
 }
 
 /* ========== ACCESSIBILITY ========== */
@@ -392,7 +416,12 @@ body {
   }
 }
 
-.side:focus-visible {
+.side:focus-visible,
+.portal__center:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: -2px;
+}
+
+.portal__center:focus-visible {
+  outline-color: var(--scookiie);
 }
