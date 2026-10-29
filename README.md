@@ -57,14 +57,16 @@ Each folder is a complete, self-contained site intended for its own GitHub repos
 - Direct links to both brand sites
 
 ### Barbershop
-- Hero + services grid (placeholder prices — replace with real ones)
+- Hero (static image) + services grid (placeholder prices — replace with real ones)
+- Experience section (Ambiente video; more clips can be added later)
 - Mini-bar products (Chocolate Scookiie Menta / Ginguba / Ao Leite + drinks & snacks)
 - Fully functional client-side cart (localStorage)
-- Checkout generates a pre-filled WhatsApp message
+- Checkout → Worker / WhatsApp fallback
 - Gallery teaser + Instagram link
 - Lubango recruitment section with dedicated WhatsApp
 - Contact form → WhatsApp
 - Sticky header + elegant mobile menu
+- Staff admin (orders, products, zones) via dedicated Worker + KV
 
 ### Chocolate Scookiie
 - Product catalogue (Menta, Ginguba, Ao Leite) + cart
@@ -135,33 +137,40 @@ Side prev/next arrows on “A Experiência Eldo Carmo” (Kylie-style), smooth s
 **Root**
 - `README.md`
 
-### 2026-09-29 — Soft rounded buttons + full-length experience videos
+### 2026-10-29 — Barbershop video cleanup
 
-Buttons: soft rounded rectangles (10px radius, not full pills) matching Kylie “shop now” style — filled, no border, sentence-case.
+Hero is static image only. Experience section keeps Ambiente (`exp-ambiente.mp4`); other experience clips removed until assets are available.
 
-Experience videos: longer full scenes (18–26s each), no loop — play through once to the end.
+**Barbershop**
+- `barbershop/index.html`
+- `barbershop/js/main.js`
+- `barbershop/README.md`
+
+**Root**
+- `README.md`
+
+### 2026-09-29 — Soft rounded buttons + experience videos
+
+Buttons: soft rounded rectangles (10px radius). Experience section with Ambiente video (additional clips pending).
 
 **Barbershop**
 - `barbershop/css/style.css`
-- `barbershop/index.html` (removed loop on experience videos)
+- `barbershop/index.html`
 - `barbershop/assets/videos/exp-ambiente.mp4`
-- `barbershop/assets/videos/exp-corte.mp4`
-- `barbershop/assets/videos/exp-detalhe.mp4`
-- `barbershop/assets/videos/exp-barba.mp4`
 
 **Root**
 - `README.md`
 
 ### 2026-09-29 — Experience video section
 
-Horizontal scroll “A Experiência Eldo Carmo” (Ambiente / Corte / Detalhe / Barba) right after Serviços. Tap to play, one video at a time.
+Horizontal scroll “A Experiência Eldo Carmo” right after Serviços. Currently Ambiente; more clips can be re-added later.
 
 **Barbershop**
 - `barbershop/index.html` (experience section)
 - `barbershop/css/style.css` (experience track + cards)
 - `barbershop/js/main.js` (play/pause)
-- `barbershop/assets/videos/exp-*.mp4` *(4 clips)*
-- `barbershop/assets/videos/poster-*.webp` *(4 posters)*
+- `barbershop/assets/videos/exp-ambiente.mp4`
+- `barbershop/assets/videos/poster-*.webp`
 
 **Root**
 - `README.md`
